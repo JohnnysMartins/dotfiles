@@ -23,3 +23,11 @@ function find_file() {
   local file=$1
   find / -name $file 2>/dev/null
 }
+
+function source_if_exists() {
+  local file=$1
+
+  if [[ -f "$file" ]]; then
+    source "$file" &> /dev/null
+  fi
+}
