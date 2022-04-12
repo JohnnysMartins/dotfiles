@@ -54,10 +54,17 @@ yay -S --needed --noconfirm \
   kubectl \
   openvpn3 \
   unzip \
+  visual-studio-code-bin \
+  slack-desktop \
+  chromium \
+  google-chrome \
+  neofetch \
   jdk8-openjdk
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh)"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://get.sdkman.io)"
+source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
