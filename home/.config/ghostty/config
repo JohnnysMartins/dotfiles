@@ -1,0 +1,48 @@
+# Omarchy-style Ghostty config, ported for macOS
+# Upstream: basecamp/omarchy @ quattro : config/ghostty/config
+
+# Theme colors
+config-file = ?~/.config/ghostty/themes/tokyo-night.conf
+
+# Font
+font-family = "JetBrainsMono Nerd Font"
+font-style = Regular
+font-size = 14
+
+# Window
+window-theme = ghostty
+window-padding-x = 14
+window-padding-y = 14
+confirm-close-surface = false
+resize-overlay = never
+
+# Cursor styling
+cursor-style = "block"
+cursor-style-blink = false
+
+# Cursor styling + SSH session terminfo
+# (all shell integration options must be passed together)
+shell-integration-features = no-cursor,ssh-env
+
+# macOS: make LEFT Option behave as Alt so tmux's M-Enter / M-1..9 bindings
+# arrive. RIGHT Option is left alone so accented characters still work.
+macos-option-as-alt = left
+
+# Keyboard bindings
+keybind = shift+insert=paste_from_clipboard
+keybind = control+insert=copy_to_clipboard
+# Send Shift+Enter as CSI-u so TUIs can distinguish it from Enter.
+keybind = shift+enter=csi:13;2u
+# Legacy encoding sends Alt+Shift+Enter the same as Alt+Enter; send CSI-u so tmux can match M-S-Enter.
+keybind = alt+shift+enter=csi:13;4u
+
+# Slowdown mouse scrolling
+mouse-scroll-multiplier = 0.95
+
+# ── Merged in from ~/Library/Application Support/com.mitchellh.ghostty/config ─
+shell-integration = zsh
+
+# Unbind default Option+Arrow (word jump) so tmux receives M-Left/M-Right
+# for window navigation.
+keybind = alt+arrow_left=unbind
+keybind = alt+arrow_right=unbind
